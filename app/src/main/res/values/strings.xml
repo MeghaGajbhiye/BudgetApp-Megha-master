@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BudgetCare_Megha</string>
+    <string name="Exit">Exit</string>
+    <string name="title_activity_cash_in">Cash In</string>
+    <string name="title_activity_cash_out">CashOut</string>
+    <string name="title_activity_budget">Budget</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_add_category">addCategory</string>
+    <string name="title_activity_statistics">Statistics</string>
+    <string name="title_activity_overview">Overview</string>
+    <string name="title_exceeded_budget">You are exceeding the balance budget,Do you want to continue?</string>
+
+</resources>
