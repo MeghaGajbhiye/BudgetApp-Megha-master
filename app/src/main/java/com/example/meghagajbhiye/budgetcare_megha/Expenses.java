@@ -27,16 +27,16 @@ import java.util.Date;
 
 
 public class Expenses extends FragmentActivity {
-    Date curDate = new Date();
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-    String DateToStr = format.format(curDate);
-    EditText editDate;
-    private EditText amountText;
-    //private EditText noteText;
+    Date currentDate = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    String DateToString = dateFormat.format(currentDate);
+    EditText eDate;
+    private EditText eAmount;
+
     private Spinner categorySpinner;
-    private Button saveBtn;
+    //private Button saveBtn;
     private TransactionDA transactionDA;
-    ImageButton addBut;
+   // ImageButton addBut;
 
 
     @Override
@@ -44,13 +44,13 @@ public class Expenses extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expenses);
 
-        editDate = (EditText) findViewById(R.id.date);
-        editDate.setText(DateToStr);
-        addBut= (ImageButton) findViewById(R.id.imageButton2);
+        eDate = (EditText) findViewById(R.id.date);
+        eDate.setText(DateToString);
+        //addBut= (ImageButton) findViewById(R.id.imageButton2);
         categorySpinner = (Spinner) findViewById(R.id.categoryspinner);
-        amountText =(EditText) findViewById(R.id.amount);
+        eAmount =(EditText) findViewById(R.id.amount);
         //noteText = (EditText) findViewById(R.id.notes);
-        saveBtn = (Button) findViewById(R.id.savebutton);
+        //saveBtn = (Button) findViewById(R.id.savebutton);
 
         this.transactionDA=new TransactionDA(this);
 
@@ -109,8 +109,8 @@ public class Expenses extends FragmentActivity {
     }
 
     public void populateSetDate(int year, int month, int day) {
-        editDate = (EditText) findViewById(R.id.date);
-        editDate.setText(year + "-" + (month + 1) + "-" + day);
+        eDate = (EditText) findViewById(R.id.date);
+        eDate.setText(year + "-" + (month + 1) + "-" + day);
     }
 
 
@@ -119,12 +119,12 @@ public class Expenses extends FragmentActivity {
     public void onClickSave(View v) {
 
         try {
-            final Editable date = editDate.getText();
+            final Editable date = eDate.getText();
 
 
             final String category = ((Category) categorySpinner.getSelectedItem()).getCategory();
-            //Editable amount = (Float) amountText.getText();
-            final float amount = Float.valueOf(amountText.getText().toString());
+            //Editable amount = (Float) eAmount.getText();
+            final float amount = Float.valueOf(eAmount.getText().toString());
            // final Editable notes = noteText.getText();
             if(amount<=0){
                 Toast.makeText(Expenses.this, "Please enter the amount", Toast.LENGTH_SHORT).show();
@@ -177,7 +177,7 @@ public class Expenses extends FragmentActivity {
 
     public void showToast(View v){
         float amount=0;
-        amount = Float.valueOf(amountText.getText().toString());
+        amount = Float.valueOf(eAmount.getText().toString());
         if(amount<=0){
             Toast.makeText(Expenses.this, "Please enter the amount", Toast.LENGTH_SHORT).show();
         }
